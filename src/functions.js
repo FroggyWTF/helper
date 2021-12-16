@@ -47,6 +47,6 @@ module.exports.agreeWithRules = (interaction, res, user) => {
       console.error(err, meta);
       return this.respond(interaction, res, { type: 4, data: { content: 'Something went wrong. Try again later or DM a staff member!', flags: 64 } });
     }
-    return this.respond(interaction, res, { type: 4, data: { content: ':tada: Welcome to the server!', flags: 64 } });
+    return this.respond(interaction, res, { type: 4, data: { content: '👋 Welcome to the server!', flags: 64 } });
   });
 };
