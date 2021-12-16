@@ -1,0 +1,15 @@
+{
+  "name": "frogge-helper",
+  "version": "1.0.0",
+  "description": "Private utilities bot",
+  "main": "src/bot.js",
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.3"
+  },
+  "dependencies": {
+    "node-fetch": "^2.6.6",
+    "tweetnacl": "^1.0.3"
+  }
+}
