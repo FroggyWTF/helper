@@ -33,6 +33,20 @@ module.exports.respond = (interaction, res, data) => {
   }).then(() => res.status(200).send('Ok!')).catch(console.error);
 };
 
-module.exports.agreeWithRules = (user) => {
-  
+const roleConfig = require('./config.json');
+
+module.exports.agreeWithRules = (interaction, res, user) => {
+  fetch(`https://discord.com/api/v9/guilds/${roleConfig.guildId}/members/${user}/roles/${roleConfig.roleId}`, {
+    method: 'PUT',
+    headers: {
+      Authorization: `Bot ${process.env.botToken}`,
+      'User-Agent': 'DiscordBot/frogge',
+    },
+  }).then((err, meta) => {
+    if (meta.status !== 204) {
+      console.error(err, meta);
+      return this.respond(interaction, res, { type: 4, data: { content: 'Something went wrong. Try again later or DM a staff member!', flags: 64 } });
+    }
+    return this.respond(interaction, res, { type: 4, data: { content: ':tada: Welcome to the server!', flags: 64 } });
+  });
 };
