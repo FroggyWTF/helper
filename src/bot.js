@@ -11,7 +11,7 @@ module.exports = async (req, res) => {
 
     if (interaction.type === 1) return res.status(200).send({ type: 1 });
     if (interaction.data.custom_id === 'agreewithrules') {
-      if (interaction.member.roles.includes(roleConfig.roleId)) return respond(interaction, res, { type: 4, data: { content: 'You\'ve already agreed with the rules!', flags: 64 } });
+      if (interaction.member.roles.includes(roleConfig.roleId)) return respond(interaction, res, { type: 4, data: { content: 'You\'ve already agreed to the rules!', flags: 64 } });
       return agreeWithRules(interaction, res, interaction.member.user.id);
     }
   } catch (e) {
