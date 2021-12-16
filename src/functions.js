@@ -42,9 +42,9 @@ module.exports.agreeWithRules = (interaction, res, user) => {
       Authorization: `Bot ${process.env.botToken}`,
       'User-Agent': 'DiscordBot/frogge',
     },
-  }).then((err, meta) => {
-    if (meta.status !== 204) {
-      console.error(err, meta);
+  }).then((roleReqStatus) => {
+    if (roleReqStatus.status !== 204) {
+      console.error(roleReqStatus);
       return this.respond(interaction, res, { type: 4, data: { content: 'Something went wrong. Try again later or DM a staff member!', flags: 64 } });
     }
     return this.respond(interaction, res, { type: 4, data: { content: '👋 Welcome to the server!', flags: 64 } });
